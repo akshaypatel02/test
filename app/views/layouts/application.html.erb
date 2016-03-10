@@ -13,6 +13,12 @@
     color: #000000;
 }
 </style>
+<style>
+.col-sm-3 { 
+    background-color: #5bc0de;
+    color: #000000;
+}
+</style>
 
 <body class='<%= controller.controller_name %>'>
   <div class="jumbotron text-center">
@@ -27,13 +33,18 @@
   </div>
   
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3 text-center">
       Lefty
+      <% if user_signed_in? %>
+        <p>
+          <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-success") %>        
+        </p>
+      <% end %>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-6 text-center">
       <%= yield %>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3 text-center">
       Righty
     </div>
   </div>

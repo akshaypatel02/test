@@ -1,7 +1,71 @@
-<h1>Homepage</h1>
-<p>This is your home now</p>
-<% if user_signed_in? %>
-  <p>
-  <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-info") %>        
-  </p>
+<% if notice %>
+<p id="notice"><%= notice %></p>
 <% end %>
+
+<% @allmessages = Message.all %>
+<h1>Message Board</h1>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#all">All</a></li>
+  <li><a data-toggle="tab" href="#urgent">Urgent</a></li>
+  <li><a data-toggle="tab" href="#news">News</a></li>
+  <li><a data-toggle="tab" href="#job">Job</a></li>
+  <li><a data-toggle="tab" href="#event">Event</a></li>
+</ul>
+<div class="tab-content">
+  <div id="all" class="tab-pane fade in active">
+    <% @allmessages.each do |message| %>
+      <div class="entry">
+        <h3><u><%= message.title %></u></h3>
+        <p><%= sanitize(message.content) %></p>
+        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
+      </div>
+    <% end %>
+  </div>
+  <div id="urgent" class="tab-pane fade">
+    <% @allmessages.each do |message| %>
+      <% if message.category == "Urgent" %>
+      <div class="entry">
+        <h3><%= message.title %></h3>
+        <p><%= sanitize(message.content) %></p>
+        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div id="news" class="tab-pane fade">
+    <% @allmessages.each do |message| %>
+      <% if message.category == "News" %>
+      <div class="entry">
+        <h3><%= message.title %></h3>
+        <p><%= sanitize(message.content) %></p>
+        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div id="job" class="tab-pane fade">
+    <% @allmessages.each do |message| %>
+      <% if message.category == "Job" %>
+      <div class="entry">
+        <h3><%= message.title %></h3>
+        <p><%= sanitize(message.content) %></p>
+        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div id="event" class="tab-pane fade">
+    <% @allmessages.each do |message| %>
+      <% if message.category == "Event" %>
+      <div class="entry">
+        <h3><%= message.title %></h3>
+        <p><%= sanitize(message.content) %></p>
+        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<p>
+  <%= button_to('Post New Message', new_message_path, :method => :get, class: "btn btn-small btn-success") %>
+</p>
