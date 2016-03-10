@@ -1,7 +1,7 @@
 <h1>Homepage</h1>
 <p>This is your home now</p>
 <% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-  </li>
+  <p>
+  <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-info") %>        
+  </p>
 <% end %>
