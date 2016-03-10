@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<% @allmessages = Message.all %>
+
 <h1>Message Board</h1>
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#all">All</a></li>
@@ -13,8 +13,8 @@
 </ul>
 <div class="tab-content">
   <div id="all" class="tab-pane fade in active">
-    <% @allmessages.each do |message| %>
-      <div class="entry">
+    <% @messages.each do |message| %>
+      <div class="entry text-left">
         <h3><u><%= message.title %></u></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
@@ -22,9 +22,9 @@
     <% end %>
   </div>
   <div id="urgent" class="tab-pane fade">
-    <% @allmessages.each do |message| %>
+    <% @messages.each do |message| %>
       <% if message.category == "Urgent" %>
-      <div class="entry">
+      <div class="entry text-left">
         <h3><%= message.title %></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
@@ -33,9 +33,9 @@
     <% end %>
   </div>
   <div id="news" class="tab-pane fade">
-    <% @allmessages.each do |message| %>
+    <% @messages.each do |message| %>
       <% if message.category == "News" %>
-      <div class="entry">
+      <div class="entry text-left">
         <h3><%= message.title %></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
@@ -44,9 +44,9 @@
     <% end %>
   </div>
   <div id="job" class="tab-pane fade">
-    <% @allmessages.each do |message| %>
+    <% @messages.each do |message| %>
       <% if message.category == "Job" %>
-      <div class="entry">
+      <div class="entry text-left">
         <h3><%= message.title %></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
@@ -55,9 +55,9 @@
     <% end %>
   </div>
   <div id="event" class="tab-pane fade">
-    <% @allmessages.each do |message| %>
+    <% @messages.each do |message| %>
       <% if message.category == "Event" %>
-      <div class="entry">
+      <div class="entry text-left">
         <h3><%= message.title %></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
