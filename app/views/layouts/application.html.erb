@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NewGroupProject</title>
+  <title>Friends Next Door</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 </head>
-<body>
 
-<%= yield %>
+<style>
+.jumbotron { 
+    background-color: #5bc0de;
+    color: #000000;
+}
+</style>
+
+<body class='<%= controller.controller_name %>'>
+  <div class="jumbotron text-center">
+    <h1>Friends Next Door</h1> 
+    <p>Connecting you with people you already live close to!</p> 
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-4">
+      Lefty
+    </div>
+    <div class="col-sm-4">
+      <%= yield %>
+    </div>
+    <div class="col-sm-4">
+      Righty
+    </div>
+  </div>
+  
 
 </body>
 </html>
