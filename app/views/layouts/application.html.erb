@@ -11,15 +11,35 @@
 .jumbotron { 
     background-color: #5bc0de;
     color: #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>
 <style>
 .col-sm-3 { 
-    background-color: #5bc0de;
-    color: #000000;
+    background-color: #2190d4;
+    color: #000000; 
 }
 </style>
-
+<style>
+.row { 
+    height: 100%;
+    width: 100%;
+}
+</style>
+<style>
+.tab-content { 
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+</style>
+<style>
+.well { 
+  
+    background-color: #ffffb3;
+    color: #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+</style>
 <body class='<%= controller.controller_name %>'>
   <div class="jumbotron text-center">
     <h1>Friends Next Door</h1> 
@@ -38,17 +58,26 @@
       Lefty
       <% if user_signed_in? %>
         <p>
-          <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-success") %>        
+          <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-success box-shadow") %>        
         </p>
       <% end %>
+      
+  
+       
+      
     </div>
-    <div class="col-sm-6 text-center">
+    <div class="col-sm-6 text-center box-shadow">
       <div class="well">
       <%= yield %>
       </div>
     </div>
     <div class="col-sm-3 text-center">
       Righty
+      <% if user_signed_in? %>
+      <p>
+       <%= button_to('Groups', new_message_path, :method => :get, class: "btn btn-small btn-success") %>
+       <% end %>
+       </p>
     </div>
   </div>
   

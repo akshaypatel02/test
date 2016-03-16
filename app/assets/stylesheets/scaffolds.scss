@@ -1,44 +1,53 @@
 body {
-  background-color: #fff;
+  background-color: #2190d4;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: verdana, arial, helvetica, serif;
   font-size: 13px;
-  line-height: 18px;
+  background-image: url("lawn2.jpg");
+  
 }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  
+  
 }
 
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
+  
 }
 
 a {
   color: #000;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   &:visited {
     color: #666;
+    
   }
 
   &:hover {
     color: #fff;
     background-color: #000;
+    
   }
 }
 
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+    
   }
 }
 
 #notice {
   color: green;
+  
 }
 
 .field_with_errors {
@@ -57,17 +66,19 @@ div {
 
   h2 {
     text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
+    font-weight: bold; 
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
   }
 
   ul li {
     font-size: 12px;
     list-style: square;
+    
   }
 }
