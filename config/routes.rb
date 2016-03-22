@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
   devise_for :users, :controllers => { registrations: 'registrations' }
   get 'home/index'
+  get 'home/profile'
   root 'home#index', as: 'home'
 
   # The priority is based upon order of creation: first created -> highest priority.

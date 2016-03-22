@@ -58,29 +58,28 @@
       Lefty
       <% if user_signed_in? %>
         <p>
-          <%= link_to "Home", home_path, class:"btn btn-success"%>
-          <%= link_to "Profile", home_profile_path, class:"btn btn-success"%>
+          <%= link_to "Home", home_path, class:"btn btn-primary"%>
           <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-success box-shadow") %>        
         </p>
       <% end %>
-      
-  
-       
-      
     </div>
+    
     <div class="col-sm-6 text-center box-shadow">
       <div class="well">
       <%= yield %>
       </div>
     </div>
+    
     <div class="col-sm-3 text-center">
-      Righty
       <% if user_signed_in? %>
-      <p>
-       <%= button_to('Groups', new_message_path, :method => :get, class: "btn btn-small btn-success") %>
-       <% end %>
-       </p>
+        <h2><u>User Information</u></h2>
+        <ul>
+          <li>Email: <%= current_user.email %></li>
+          <li>Role: <%= current_user.role %></li>
+        </ul>
+      <% end %>
     </div>
+    
   </div>
   
 
