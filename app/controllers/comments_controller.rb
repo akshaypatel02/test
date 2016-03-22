@@ -12,6 +12,15 @@ class CommentsController < ApplicationController
 		end
 	end
 
+	def edit
+		@message = Message.find(params[:message_id])
+		@comment = @message.comments.find(params[:id])
+
+	end
+
+	def update
+
+	end
 	private
 
 		def comment_params
