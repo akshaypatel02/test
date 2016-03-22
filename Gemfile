@@ -34,7 +34,7 @@ gem 'week_calendar', '~> 0.0.3'
 gem 'tzinfo-data'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'simple_form'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :messages
+  resources :messages do
+    resources :comments
+  end
   devise_for :users, :controllers => { registrations: 'registrations' }
   get 'home/index'
   root 'home#index', as: 'home'
