@@ -1,71 +1,29 @@
-<% if notice %>
 <p id="notice"><%= notice %></p>
-<% end %>
 
+<h1>Listing Groups</h1>
 
-<h1>Message Board</h1>
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#all">All</a></li>
-  <li><a data-toggle="tab" href="#urgent">Urgent</a></li>
-  <li><a data-toggle="tab" href="#news">News</a></li>
-  <li><a data-toggle="tab" href="#job">Job</a></li>
-  <li><a data-toggle="tab" href="#event">Event</a></li>
-</ul>
-<div class="tab-content">
-  <div id="all" class="tab-pane fade in active">
-    <% @messages.each do |message| %>
-      <div class="entry text-left">
-        <h3><u><%= message.title %></u></h3>
-        <p><%= sanitize(message.content) %></p>
-        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-      </div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.name %></td>
+        <td><%= group.description %></td>
+        <td><%= link_to 'Show', group %></td>
+        <td><%= link_to 'Edit', edit_group_path(group) %></td>
+        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
-  </div>
-  <div id="urgent" class="tab-pane fade">
-    <% @messages.each do |message| %>
-      <% if message.category == "Urgent" %>
-      <div class="entry text-left">
-        <h3><%= message.title %></h3>
-        <p><%= sanitize(message.content) %></p>
-        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-      </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div id="news" class="tab-pane fade">
-    <% @messages.each do |message| %>
-      <% if message.category == "News" %>
-      <div class="entry text-left">
-        <h3><%= message.title %></h3>
-        <p><%= sanitize(message.content) %></p>
-        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-      </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div id="job" class="tab-pane fade">
-    <% @messages.each do |message| %>
-      <% if message.category == "Job" %>
-      <div class="entry text-left">
-        <h3><%= message.title %></h3>
-        <p><%= sanitize(message.content) %></p>
-        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-      </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div id="event" class="tab-pane fade">
-    <% @messages.each do |message| %>
-      <% if message.category == "Event" %>
-      <div class="entry text-left">
-        <h3><%= message.title %></h3>
-        <p><%= sanitize(message.content) %></p>
-        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-      </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-<p>
-  <%= button_to('Post New Message', new_message_path, :method => :get, class: "btn btn-small btn-success") %>
-</p>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Group', new_group_path %>

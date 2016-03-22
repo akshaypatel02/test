@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :memberships
+  resources :groups
   resources :messages do
     resources :comments
   end
