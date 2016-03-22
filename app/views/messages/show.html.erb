@@ -15,10 +15,7 @@
   <%= @message.category %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @message.user %>
-</p>
 
-<%= link_to 'Edit', edit_message_path(@message) %> |
-<%= link_to 'Back', messages_path %>
+
+<%= link_to 'Edit', edit_message_path(@message), class:"btn btn-secondary btn-sm" %> |
+<%= link_to 'Back', messages_path, class:"btn btn-secondary btn-sm" %>
