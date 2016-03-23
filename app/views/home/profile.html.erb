@@ -21,9 +21,17 @@
     <% end %>
   </div>
   <div id="inbox" class="tab-pane fade">
-    <p>Not implemented yet!</p>
+    <% @inbox.each do |message| %>
+      <div class="entry text-left">
+        <h3><u>From: <%= (User.find_by(id: message.user_id)).email %></u></h3>
+        <p><%= sanitize(message.content) %></p>
+      </div>
+    <% end %>
   </div>
   <div id="bookmarks" class="tab-pane fade">
     <p>Not implemented yet!</p>
   </div>
 </div>
+<p>
+  <%= button_to('Send Private Message', new_private_message_path, :method => :get, class: "btn btn-small btn-success") %>
+</p>

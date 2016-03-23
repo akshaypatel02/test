@@ -14,6 +14,14 @@ class HomeController < ApplicationController
         @userMessages.push(message)
       end
     end
+    
+    @privateMessages = PrivateMessage.all
+    @inbox = Array.new
+    @privateMessages.each do |message|
+      if message.to == current_user.email
+        @inbox.push(message)
+      end
+    end
   end
   
 end
