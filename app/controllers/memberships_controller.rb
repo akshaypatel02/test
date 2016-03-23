@@ -15,6 +15,21 @@ class MembershipsController < ApplicationController
   # GET /memberships/new
   def new
     @membership = Membership.new
+    @userInfo = User.all
+    @userEmail = Array.new
+    @userInfo.each do |user|
+      @userEmail.push(user.email)
+    end
+    
+    
+    @groupInfo = Group.all
+    @groupName = Array.new
+    @groupInfo.each do |group|
+      @groupName.push(group.title)
+    end
+    
+    
+    
     
   end
 
@@ -26,7 +41,9 @@ class MembershipsController < ApplicationController
   # POST /memberships.json
   def create
     @membership = Membership.new(membership_params)
-
+    #group = Group.find_by(title: @membership.title)
+  
+    #@membership.group_id = group.id
     respond_to do |format|
       if @membership.save
         format.html { redirect_to @membership, notice: 'Membership was successfully created.' }
@@ -71,5 +88,9 @@ class MembershipsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def membership_params
       params.require(:membership).permit(:user_id, :group_id)
+    end
+    
+    def setIds
+      
     end
 end

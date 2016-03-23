@@ -2,10 +2,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.association :group %>
+    <%= f.input :email, collection: @userEmail %>
+    <%= f.input :title, collection: @groupName %>
   </div>
-
+    
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
