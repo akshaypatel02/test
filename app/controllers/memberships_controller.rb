@@ -1,5 +1,6 @@
 class MembershipsController < ApplicationController
   before_action :set_membership, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /memberships
   # GET /memberships.json
@@ -20,12 +21,12 @@ class MembershipsController < ApplicationController
     @userInfo.each do |user|
       @userEmail.push(user.email)
     end
-    
+  
     
     @groupInfo = Group.all
     @groupName = Array.new
     @groupInfo.each do |group|
-      @groupName.push(group.title)
+    @groupName.push(group.title)
     end
     
     
@@ -42,7 +43,6 @@ class MembershipsController < ApplicationController
   def create
     @membership = Membership.new(membership_params)
     #group = Group.find_by(title: @membership.title)
-  
     #@membership.group_id = group.id
     respond_to do |format|
       if @membership.save
@@ -87,7 +87,7 @@ class MembershipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def membership_params
-      params.require(:membership).permit(:user_id, :group_id)
+      params.require(:membership).permit(:user_id, :group_id, :email, :title)
     end
     
     def setIds
