@@ -11,15 +11,17 @@
   </thead>
 
   <tbody>
-    <% @groups.each do |group| %>
+    <% @memberships.each do |member| %>
+      <% if member.user_id == current_user.id %>
       <tr>
-        <p><td><%= group.title %></td></p>
-        <p><td><%= group.description %></td></p>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <p><td><%= member.title %></td></p>
+        <p><td><%= (Group.find_by(title: member.title)).description %></td></p>
+        <td><%= link_to 'Show', Group.find_by(title: member.title) %></td>
+        <td><%= link_to 'Edit', edit_group_path(Group.find_by(title: member.title)) %></td>
+        <td><%= link_to 'Destroy', Group.find_by(title: member.title), method: :delete, data: { confirm: 'Are you sure?' } %></td>
        
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

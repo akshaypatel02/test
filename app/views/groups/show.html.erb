@@ -10,5 +10,14 @@
   <%= @group.description %>
 </p>
 
+<p>
+  <strong>Members:</strong>
+  <% @memberships.each do |member| %>
+    <% if member.group_id == @group.id %>
+      <p><%= member.email %> </p>
+    <% end %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

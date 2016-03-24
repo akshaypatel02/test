@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160323201133) do
-=======
-ActiveRecord::Schema.define(version: 20160323062825) do
->>>>>>> 8857b90433efb0cad042849a4c2eeedd74b39bfc
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -40,11 +36,8 @@ ActiveRecord::Schema.define(version: 20160323062825) do
     t.integer  "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
     t.string   "email"
     t.string   "title"
-=======
->>>>>>> 8857b90433efb0cad042849a4c2eeedd74b39bfc
   end
 
   add_index "memberships", ["group_id"], name: "index_memberships_on_group_id"

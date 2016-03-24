@@ -5,11 +5,13 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = Group.all
+    @memberships = Membership.all
   end
 
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @memberships = Membership.all
   end
 
   # GET /groups/new
@@ -28,7 +30,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
+        format.html { redirect_to groups_path, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new }

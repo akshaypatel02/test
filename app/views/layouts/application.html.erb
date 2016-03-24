@@ -16,8 +16,8 @@
 </style>
 <style>
 .col-sm-3 { 
-    background-color: #2190d4;
-    color: #000000; 
+    position: relative;
+    overflow: hidden;
 }
 </style>
 <style>
@@ -55,12 +55,15 @@
   
   <div class="row">
     <div class="col-sm-3 text-center">
-      Lefty
       <% if user_signed_in? %>
         <p>
-          <%= link_to "Home", home_path, class:"btn btn-success"%>
-          <%= link_to "Profile", home_profile_path, class:"btn btn-success"%>
-          <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-success box-shadow") %>        
+        <%= button_to('Home', home_path, :method => :get, class: "btn btn-small btn-success") %>
+        </p>
+        <p>
+        <%= button_to('Profile', home_profile_path, :method => :get, class: "btn btn-small btn-success") %>
+        </p>          
+        <p>
+        <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-success box-shadow") %>        
         </p>
       <% end %>
       
@@ -74,7 +77,6 @@
       </div>
     </div>
     <div class="col-sm-3 text-center">
-      Righty
       <% if user_signed_in? %>
       <p>
        <%= button_to('Groups', groups_path, :method => :get, class: "btn btn-small btn-success") %>

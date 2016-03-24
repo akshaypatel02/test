@@ -1,7 +1,17 @@
-<p> <%= comment.content %> </p>
-<p>Posted by <%= comment.user.email %> <%= time_ago_in_words(comment.created_at) %> ago</p>
+<style>
+  .entry{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #FFFFFF;
+  }
+</style>
+
+<div class="entry text-center">
+  <p> <%= comment.content %> </p>
+  <p>Posted by: <%= comment.user.email %> <%= time_ago_in_words(comment.created_at) %> ago</p>
+</div>
 
 <% if comment.user_id == current_user.id %>
 <%= link_to "Edit", edit_message_comment_path(comment.message, comment)  %>
 <%= link_to "Delete", message_comment_path(comment.message, comment), method: :delete, data: {confirm: "Are you sure?"} %>
 <% end %>
+<p></p>
