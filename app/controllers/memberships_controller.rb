@@ -42,11 +42,10 @@ class MembershipsController < ApplicationController
   # POST /memberships.json
   def create
     @membership = Membership.new(membership_params)
-    #group = Group.find_by(title: @membership.title)
-    #@membership.group_id = group.id
+
     respond_to do |format|
       if @membership.save
-        format.html { redirect_to @membership, notice: 'Membership was successfully created.' }
+        format.html { redirect_to groups_path, notice: 'User was successfully added to group.' }
         format.json { render :show, status: :created, location: @membership }
       else
         format.html { render :new }
