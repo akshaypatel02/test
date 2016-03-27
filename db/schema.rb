@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323201133) do
+ActiveRecord::Schema.define(version: 20160327202926) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 20160323201133) do
 
   add_index "comments", ["message_id"], name: "index_comments_on_message_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "group_messages", force: :cascade do |t|
+    t.integer  "group_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "group_messages", ["group_id"], name: "index_group_messages_on_group_id"
+  add_index "group_messages", ["user_id"], name: "index_group_messages_on_user_id"
 
   create_table "groups", force: :cascade do |t|
     t.string   "title"

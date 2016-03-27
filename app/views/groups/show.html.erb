@@ -18,6 +18,12 @@
     <% end %>
   <% end %>
 </p>
+<div class="entry text-center">
+    <% @currentMessages.each do |message| %>
+        <p><%= sanitize(message.content) %></p>
+        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
+    <% end %>
+</div>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>
