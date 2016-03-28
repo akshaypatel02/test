@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
     @allGroupMessages = GroupMessage.all
     @currentMessages = Array.new
     @allGroupMessages.each do |message|
-      if message.group_id = @group.id
+      if message.group_id == @group.id
         @currentMessages.push(message)
       end
     end

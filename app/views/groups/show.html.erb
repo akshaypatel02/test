@@ -19,11 +19,15 @@
   <% end %>
 </p>
 <div class="entry text-center">
-    <% @currentMessages.each do |message| %>
+    <% @allGroupMessages.each do |message| %>
+      <% if message.group_id == @group.id %>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
+      <% end %>
     <% end %>
 </div>
+
+
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>
