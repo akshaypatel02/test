@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :group_messages
+=======
+  resources :business_messages
+>>>>>>> 95540522fd585cc46da0e17c698b1a57ea39a8c3
   resources :private_messages
   resources :memberships
   resources :groups
