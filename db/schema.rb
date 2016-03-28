@@ -11,9 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160328193756) do
-=======
 ActiveRecord::Schema.define(version: 20160328163325) do
 
   create_table "business_messages", force: :cascade do |t|
@@ -25,7 +22,6 @@ ActiveRecord::Schema.define(version: 20160328163325) do
   end
 
   add_index "business_messages", ["user_id"], name: "index_business_messages_on_user_id"
->>>>>>> 95540522fd585cc46da0e17c698b1a57ea39a8c3
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
