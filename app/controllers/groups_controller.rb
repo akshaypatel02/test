@@ -14,11 +14,7 @@ class GroupsController < ApplicationController
     @memberships = Membership.all
     @allGroupMessages = GroupMessage.all
     @currentMessages = Array.new
-    @allGroupMessages.each do |message|
-      if message.group_id == @group.id
-        @currentMessages.push(message)
-      end
-    end
+    
   end
 
   # GET /groups/new
@@ -34,7 +30,7 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-
+    @group.user_id = current_user.id
     respond_to do |format|
       if @group.save
         format.html { redirect_to groups_path, notice: 'Group was successfully created.' }
