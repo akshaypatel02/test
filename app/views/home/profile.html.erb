@@ -11,7 +11,7 @@
 </ul>
 <div class="tab-content">
   <div id="userMessages" class="tab-pane fade in active">
-    <% @userMessages.each do |message| %>
+    <% @userMessages.reverse.each do |message| %>
       <div class="entry text-left">
         <h3><u><%= message.title %></u></h3>
         <p><%= sanitize(message.content) %></p>
@@ -21,7 +21,7 @@
     <% end %>
   </div>
   <div id="inbox" class="tab-pane fade">
-    <% @inbox.each do |message| %>
+    <% @inbox.reverse.each do |message| %>
       <div class="entry text-left">
         <h3><u>From: <%= (User.find_by(id: message.user_id)).email %></u></h3>
         <p><%= sanitize(message.content) %></p>
@@ -29,7 +29,7 @@
     <% end %>
   </div>
   <div id="bookmarks" class="tab-pane fade">
-    <% @userBookmarks.each do |message| %>
+    <% @userBookmarks.reverse.each do |message| %>
       <div class="entry text-left">
         <h3><u><%= message.title %></u></h3>
         <p><%= sanitize(message.content) %></p>
