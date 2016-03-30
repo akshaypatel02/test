@@ -15,7 +15,7 @@
   <div id="all" class="tab-pane fade in active">
     <% @messages.reverse.each do |message| %>
       <div class="entry text-left">
-        <h3><u><%= message.title %></u></h3>
+        <h3><u><%= link_to message.title,message_path(message) %></u></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
         
