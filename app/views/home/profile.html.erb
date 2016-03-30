@@ -29,8 +29,14 @@
     <% end %>
   </div>
   <div id="bookmarks" class="tab-pane fade">
-    <h1><p><%=@current_user.find_up_voted_items %></p></h1>
-      
+    <% @userBookmarks.each do |message| %>
+      <div class="entry text-left">
+        <h3><u><%= message.title %></u></h3>
+        <p><%= sanitize(message.content) %></p>
+        <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
+        <%= link_to "view Message", message_path(message), class: "btn btn-default" %>
+      </div>
+    <% end %>
   </div>
 </div>
 <p>

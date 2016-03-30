@@ -63,12 +63,12 @@ class MessagesController < ApplicationController
 
   def upvote
     @message.upvote_from current_user
-    redirect_to message_path
+    redirect_to home_path
   end
 
   def downvote
     @message.downvote_from current_user
-    redirect_to message_path
+    redirect_to home_path
   end
 
   def count

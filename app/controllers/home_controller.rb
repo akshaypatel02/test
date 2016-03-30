@@ -23,12 +23,7 @@ class HomeController < ApplicationController
       end
     end
 
-    @bookmarks = Message.all
-    @userBookmarks = Array.new
-    @messages.each do |message|
-      @current_user.find_voted_items
-      @userBookmarks.push(message)
-    end
+    @userBookmarks = @current_user.find_up_voted_items
   end
   
 end
