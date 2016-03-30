@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :groups
   resources :messages do
     resources :comments
+    member do
+      put "like" => "messages#upvote"
+      put "unlike" => "messages#downvote"
+    end
   end
   devise_for :users, :controllers => { registrations: 'registrations' }
   get 'home/index'

@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /messages
   # GET /messages.json
@@ -59,6 +59,20 @@ class MessagesController < ApplicationController
       format.html { redirect_to home_path, notice: 'Message was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @message.upvote_from current_user
+    redirect_to message_path
+  end
+
+  def downvote
+    @message.downvote_from current_user
+    redirect_to message_path
+  end
+
+  def count
+    @current_user.find_voted_items
   end
 
   private
