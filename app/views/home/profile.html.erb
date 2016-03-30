@@ -13,10 +13,10 @@
   <div id="userMessages" class="tab-pane fade in active">
     <% @userMessages.reverse.each do |message| %>
       <div class="entry text-left">
-        <h3><u><%= message.title %></u></h3>
+        <h3><u><%= link_to message.title,message_path(message) %></u></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-        <%= link_to "view Message", message_path(message), class: "btn btn-default" %>
+        
       </div>
     <% end %>
   </div>
@@ -31,7 +31,7 @@
   <div id="bookmarks" class="tab-pane fade">
     <% @userBookmarks.reverse.each do |message| %>
       <div class="entry text-left">
-        <h3><u><%= message.title %></u></h3>
+        <h3><u><%= link_to message.title,message_path(message) %></u></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
         <%= link_to "view Message", message_path(message), class: "btn btn-default" %>

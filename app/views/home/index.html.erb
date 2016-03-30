@@ -18,7 +18,7 @@
         <h3><u><%= message.title %></u></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-        <%= link_to "view Message", message_path(message), class: "btn btn-default" %>
+        
         <%= link_to "Like", like_message_path(message), method: :put  %>
           
               <span class="badge"><%= message.get_upvotes.size %></span>
@@ -35,10 +35,10 @@
     <% @messages.reverse.each do |message| %>
       <% if message.category == "Urgent" %>
       <div class="entry text-left">
-        <h3><%= message.title %></h3>
+        <h3><%= link_to message.title,message_path(message) %></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-        <%= link_to "view Message", message_path(message), class: "btn btn-default" %>
+       
       </div>
       <% end %>
     <% end %>
@@ -47,10 +47,10 @@
     <% @messages.reverse.each do |message| %>
       <% if message.category == "News" %>
       <div class="entry text-left">
-        <h3><%= message.title %></h3>
+        <h3><%= link_to message.title,message_path(message) %></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-        <%= link_to "view Message", message_path(message), class: "btn btn-default" %>
+        
       </div>
       <% end %>
     <% end %>
@@ -59,10 +59,10 @@
     <% @messages.reverse.each do |message| %>
       <% if message.category == "Job" %>
       <div class="entry text-left">
-        <h3><%= message.title %></h3>
+        <h3><%= link_to message.title,message_path(message) %></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-        <%= link_to "view Message", message_path(message), class: "btn btn-default" %>
+        
       </div>
       <% end %>
     <% end %>
@@ -71,10 +71,10 @@
     <% @messages.reverse.each do |message| %>
       <% if message.category == "Event" %>
       <div class="entry text-left">
-        <h3><%= message.title %></h3>
+        <h3><%= link_to message.title,message_path(message) %></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-        <%= link_to "view Message", message_path(message), class: "btn btn-default" %>
+        
       </div>
       <% end %>
     <% end %>
