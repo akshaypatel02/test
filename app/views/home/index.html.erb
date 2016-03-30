@@ -19,12 +19,15 @@
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
         <%= link_to "view Message", message_path(message), class: "btn btn-default" %>
-        <%= link_to like_message_path(message), class: 'like', method: :put do %>
-          <button> type="button" class="btn btn-info" aria-label="Left Align>
-              <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+        <%= link_to "Like", like_message_path(message), method: :put  %>
+          
               <span class="badge"><%= message.get_upvotes.size %></span>
+
+          <%= link_to "UnLike", unlike_message_path(message), method: :put  %>
+          
+              <span class="badge"><%= message.get_downvotes.size %></span>
           </button>
-          <% end %>
+          <%# end %>
       </div>
     <% end %>
   </div>
