@@ -62,6 +62,14 @@
         <p>
         <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-success box-shadow") %>        
         </p>
+        <% if (current_user.role == "Admin" || current_user.role == "Lead") %>
+          <p>
+            <%= button_to('Register New User', new_user_registration_path, :method => :get, class: "btn btn-small btn-success") %>
+          </p>
+          <p>
+            <%= button_to("Email User", new_email_path, :method => :get, class: "btn btn-small btn-success") %>
+          </p>
+        <% end %>
       <% end %>
     </div>
     

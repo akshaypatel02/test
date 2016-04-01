@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :emails
   resources :business_messages
   resources :group_messages
   resources :private_messages
