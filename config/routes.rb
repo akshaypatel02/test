@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   resources :emails
   resources :business_messages
   resources :group_messages
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   get 'home/index'
   get 'home/profile'
+  get 'home/calendar'
   root 'home#index', as: 'home'
 
   # The priority is based upon order of creation: first created -> highest priority.

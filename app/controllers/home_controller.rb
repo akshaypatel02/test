@@ -26,4 +26,7 @@ class HomeController < ApplicationController
     @userBookmarks = @current_user.find_up_voted_items
   end
   
+  def calendar
+    @events = Event.all
+  end
 end
