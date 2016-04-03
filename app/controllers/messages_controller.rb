@@ -62,11 +62,29 @@ class MessagesController < ApplicationController
   end
 
   def upvote
+    points = current_user.points + 1
+    user = User.find_by(id: @message.user_id)
+    if (current_user.voted_as_when_voting_on @message) == true
+      #Do nothing
+    else
+      user.update_column(:points, points)
+    end
     @message.upvote_from current_user
     redirect_to home_path
   end
 
   def downvote
+    user = User.find_by(id: @message.user_id)
+    if user.points > 0
+      points = user.points - 1
+    else
+      points = 0
+    end
+    if (current_user.voted_as_when_voting_on @message) == false
+      #Do nothing
+    else
+      user.update_column(:points, points)
+    end
     @message.downvote_from current_user
     redirect_to home_path
   end
