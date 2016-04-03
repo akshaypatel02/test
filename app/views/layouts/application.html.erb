@@ -68,6 +68,14 @@
         <% if current_user.role == "Business" %>
           <%= button_to('Post Broadcast', new_business_message_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>
         <% end %>
+        <% if (current_user.role == "Admin" || current_user.role == "Lead") %>
+         <p>
+          <%= button_to('Show Events', events_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>        
+          </p>
+        <% end %>
+          <p>
+            <%= button_to('Calendar', home_calendar_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>        
+          </p>
       <% end %>
       
   

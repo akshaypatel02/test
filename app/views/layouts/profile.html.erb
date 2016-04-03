@@ -69,7 +69,13 @@
           <p>
             <%= button_to("Email User", new_email_path, :method => :get, class: "btn btn-small btn-success") %>
           </p>
+          <p>
+          <%= button_to('Show Events', events_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>        
+          </p>
         <% end %>
+          <p>
+            <%= button_to('Calendar', home_calendar_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>        
+          </p>
       <% end %>
     </div>
     
