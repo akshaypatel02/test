@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   #before_action :authenticate_user!
-  layout "profile", only: [:profile]
+  layout "profile", only: [:profile, :leadCandidates]
   
   def index
     @messages = Message.all
@@ -24,6 +24,22 @@ class HomeController < ApplicationController
     end
 
     @userBookmarks = @current_user.find_up_voted_items
+  end
+  
+  def leadCandidates
+    @allUsers = User.where(:role => 'User')
+    @possibleLeads = Array.new
+    @allUsers.each do |user|
+      if user.points > 50
+        @possibleLeads.push(user)
+      end
+    end
+  end
+  
+  def promote
+    user = User.find(params[:id])
+    user.update_column(:role, 1)
+    redirect_to home_leadCandidates_path
   end
   
 end

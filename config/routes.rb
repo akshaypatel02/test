@@ -13,8 +13,13 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users, :controllers => { registrations: 'registrations' }
+  
+  
   get 'home/index'
   get 'home/profile'
+  get 'home/leadCandidates'
+  post 'home/promote'
+  
   root 'home#index', as: 'home'
 
   # The priority is based upon order of creation: first created -> highest priority.
