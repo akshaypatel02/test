@@ -13,6 +13,55 @@ body {
     background-color: #5cb85c; 
      
   }
+  .simple-calendar {
+  .day {
+    background-color: white;
+  }
+
+  .wday-0 {
+    width: 250px;
+    
+  }
+  .wday-1 {
+    width: 250px;
+  }
+  .wday-2 {
+    width: 250px;
+  }
+  .wday-3 {
+    width: 250px;
+  }
+  .wday-4 {
+    width: 250px;
+    
+  }
+  .wday-5 {
+    width: 250px;
+  }
+  .wday-6 {
+    width: 250px;
+  }
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {
+    color: red;
+    
+  }
+  
+}
+  
+  
+  
+  
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;

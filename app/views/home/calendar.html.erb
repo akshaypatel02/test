@@ -1,5 +1,12 @@
+ <style>
+     .th{
+         width: 250px;
+          
+         border-style: solid ;
+     }
+ </style>
  <%= month_calendar events: @events do |date, events| %>
-  <%= date %>
+  <b><u><%= date.month %>-<%= date.day %></u></b>
 
   <% events.each do |event| %>
     <div>
