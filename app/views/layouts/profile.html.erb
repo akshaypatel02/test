@@ -69,7 +69,11 @@
             <%= button_to("Email User", new_email_path, :method => :get, class: "btn btn-small btn-success") %>
           </p>
           <p>
-          <%= button_to('Show Events', events_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>        
+            <%= button_to('Show Events', events_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>    
+          </p>
+           <p>
+            <%= button_to('Lead Candidates', home_leadCandidates_path, :method => :get, class: "btn btn-small btn-success") %>
+ 
           </p>
         <% end %>
           <p>
@@ -90,6 +94,11 @@
         <ul>
           <li>Email: <%= current_user.email %></li>
           <li>Role: <%= current_user.role %></li>
+          <% if current_user.points == nil %>
+            <li>Points: None assigned yet</li>
+          <% else %>
+            <li>Points: <%= current_user.points %></li>
+          <% end %>
         </ul>
       <% end %>
     </div>

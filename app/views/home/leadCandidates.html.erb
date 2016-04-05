@@ -1,0 +1,24 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Possible Leads</h1>
+
+<table class="table text-center"> 
+  <thead>
+    <tr>
+      <td><b>Email</b></td> 
+      <td><b>Points</b></td>
+      <th>Promote</th>
+   </tr>
+  </thead>
+  <tbody>
+    <% @possibleLeads.each do |user| %>
+      <tr>   
+        <td><b><%= user.email %></b></td>
+        <td><b> <%= user.points %></b></td>
+        <td><%= link_to "Promote", home_promote_path(:id => user.id), method: :post %></td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>
