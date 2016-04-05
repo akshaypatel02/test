@@ -76,6 +76,9 @@
           <p>
             <%= button_to('Calendar', home_calendar_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>        
           </p>
+          <p>
+            <%= button_to('Groups', groups_path, :method => :get, class: "btn btn-small btn-success") %>
+          </p>
       <% end %>
       
   
@@ -92,7 +95,7 @@
     <div class="col-sm-3 text-center">
       <% if user_signed_in? %>
       <p>
-       <%= button_to('Groups', groups_path, :method => :get, class: "btn btn-small btn-success") %>
+        
        <div class="well">
          <h2><u>Business Broadcasts</u></h2>
           <div class="entry text-left">

@@ -2,8 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :group %>
-    <%= f.input :title %>
+    <%= f.input :group_name, collection: @yourGroups %> 
     <%= f.input :content %>
   </div>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403183145) do
+ActiveRecord::Schema.define(version: 20160405195738) do
 
   create_table "business_messages", force: :cascade do |t|
     t.string   "title"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160403183145) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "group_name"
   end
 
   add_index "group_messages", ["group_id"], name: "index_group_messages_on_group_id"

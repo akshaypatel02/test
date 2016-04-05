@@ -24,14 +24,12 @@ class MembershipsController < ApplicationController
   
     
     @groupInfo = Group.all
-    @groupName = Array.new
+    @yourGroups = Array.new
     @groupInfo.each do |group|
-    @groupName.push(group.title)
+      if group.user_id == current_user.id
+        @yourGroups.push(group.title)
+      end
     end
-    
-    
-    
-    
   end
 
   # GET /memberships/1/edit

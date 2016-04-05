@@ -15,7 +15,24 @@ class GroupMessagesController < ApplicationController
   # GET /group_messages/new
   def new
     @group_message = GroupMessage.new
+    @allGroups = Group.all
+    @yourGroups = Array.new
+    @allGroups.each do |group|
+      @allMemberships = Membership.all
+      @groupMemberships = Array.new
+      @allMemberships.each do |membership|
+        if membership.title == group.title
+          @groupMemberships.push(membership)
+        end
+      end
+      @groupMemberships.each do |gmember|
+        if current_user.id == gmember.user_id
+         @yourGroups.push(group.title)
+        end
+      end
+    end
   end
+ 
 
   # GET /group_messages/1/edit
   def edit
@@ -25,10 +42,10 @@ class GroupMessagesController < ApplicationController
   # POST /group_messages.json
   def create
     @group_message = GroupMessage.new(group_message_params)
-    @group_message.user_id = current_user.id
+    @group_message.user_id = current_user.id 
     respond_to do |format|
       if @group_message.save
-        format.html { redirect_to @group_message, notice: 'Group message was successfully created.' }
+        format.html { redirect_to groups_path, notice: 'Group message was successfully created.' }
         format.json { render :show, status: :created, location: @group_message }
       else
         format.html { render :new }
@@ -69,6 +86,6 @@ class GroupMessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_message_params
-      params.require(:group_message).permit(:group_id, :title, :content)
+      params.require(:group_message).permit(:group_id, :group_name, :content)
     end
 end
