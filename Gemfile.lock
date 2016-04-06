@@ -196,6 +196,7 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.0)
   jquery-rails
+  nokogiri
   pg (= 0.15.1)
   pundit
   rails (= 4.2.5.1)

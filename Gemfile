@@ -35,6 +35,7 @@ gem 'tzinfo-data'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'simple_form'
+gem 'nokogiri'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'acts_as_votable'

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :feeds
   resources :blog_articals
   resources :events
   resources :emails
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   
   get 'feed' => 'blog_articles#feed'
+  get 'webhook' => 'feeds#webhook'
+  post 'webhook' => 'feeds#webhook' 
+  get 'subscribe' => 'feeds#subscribe'
   get 'home/index'
   get 'home/profile'
   get 'home/calendar'

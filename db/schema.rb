@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406030545) do
+ActiveRecord::Schema.define(version: 20160406035956) do
 
   create_table "blog_articals", force: :cascade do |t|
     t.string   "title"
@@ -49,12 +49,29 @@ ActiveRecord::Schema.define(version: 20160406030545) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "entries", force: :cascade do |t|
+    t.string   "title"
+    t.string   "author"
+    t.text     "body"
+    t.integer  "feed_id"
+    t.integer  "entry_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.datetime "start_time"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.text     "description"
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.string   "title"
+    t.string   "feed_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "group_messages", force: :cascade do |t|
