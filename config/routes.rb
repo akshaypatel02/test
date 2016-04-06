@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get 'home/leadCandidates'
   post 'home/promote'
   
-  root 'home#index', as: 'home'
+  root 'home#index', as: 'home' 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

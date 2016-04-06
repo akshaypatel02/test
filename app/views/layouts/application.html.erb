@@ -12,6 +12,9 @@
     background-color: #5bc0de;
     color: #000000;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 200px; 
+    background: linear-gradient(315deg, rgba(255,0,0,0), rgba(255,255,255,255), rgba(255,0,0,0));  
+  
 }
 </style>
 <style>
@@ -35,49 +38,44 @@
 <style>
 .well { 
   
-    background-color: #ffffb3;
+    background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,255,255,255), rgba(255,0,0,0)); 
     color: #000000;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>
 <body class='<%= controller.controller_name %>'>
-  <div class="jumbotron text-center">
-    <h1>Friends Next Door</h1> 
-    <p>Connecting you with people you already live close to!</p> 
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+  <div class="jumbotron text-center"> 
+    <h1>Friends Next Door</h1>
+    <p>Connecting You With People You Already Live Close To</p>
+ 
   </div>
-  
+   
   
   <div class="row">
     <div class="col-sm-3 text-center">
       <% if user_signed_in? %>
         <p>
-        <%= button_to('Home', home_path, :method => :get, class: "btn btn-small btn-success") %>
+        <%= button_to('Home', home_path, :method => :get, class: "btn btn-small btn-default") %>
         </p>
         <p>
-        <%= button_to('Profile', home_profile_path, :method => :get, class: "btn btn-small btn-success") %>
+        <%= button_to('Profile', home_profile_path, :method => :get, class: "btn btn-small btn-default") %>
         </p>          
         <p>
-        <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-success box-shadow") %>        
+        <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-default") %>        
         </p>
         <% if current_user.role == "Business" %>
-          <%= button_to('Post Broadcast', new_business_message_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>
+          <%= button_to('Post Broadcast', new_business_message_path, :method => :get, class: "btn btn-small btn-default") %>
         <% end %>
         <% if (current_user.role == "Admin" || current_user.role == "Lead") %>
          <p>
-          <%= button_to('Show Events', events_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>        
+          <%= button_to('Show Events', events_path, :method => :get, class: "btn btn-small btn-default") %>        
           </p>
         <% end %>
           <p>
-            <%= button_to('Calendar', home_calendar_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>        
+            <%= button_to('Calendar', home_calendar_path, :method => :get, class: "btn btn-small btn-default") %>        
           </p>
           <p>
-            <%= button_to('Groups', groups_path, :method => :get, class: "btn btn-small btn-success") %>
+            <%= button_to('Groups', groups_path, :method => :get, class: "btn btn-small btn-default") %>
           </p>
       <% end %>
       
@@ -98,8 +96,10 @@
         
        <div class="well">
          <h2><u>Business Broadcasts</u></h2>
-          <div class="entry text-left">
-            <%= render partial: "business_messages/broadcasts", locals: {broadcasts: BusinessMessage.all} %>
+          <div class="tab-content">
+            <p>
+              <%= render partial: "business_messages/broadcasts", locals: {broadcasts: BusinessMessage.all} %>
+            </p>
           </div>
        </div>
        <% end %>

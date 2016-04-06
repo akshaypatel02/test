@@ -1,7 +1,10 @@
 <% broadcasts.each do |broadcast| %>
+  
   <div class="entry text-left">
+        
         <h4><u><%= broadcast.title %></u></h4>
         <p><%= sanitize(broadcast.content) %></p>
         <p>Posted by: <%= (User.find_by(id: broadcast.user_id)).email %></p>
   </div>
+  
 <% end %>

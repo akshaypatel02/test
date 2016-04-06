@@ -12,6 +12,8 @@
     background-color: #5bc0de;
     color: #000000;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: linear-gradient(315deg, rgba(255,0,0,0), rgba(255,255,255,255), rgba(255,0,0,0));  
+    height: 200px;
 }
 </style>
 <style>
@@ -35,20 +37,16 @@
 <style>
 .well { 
   
-    background-color: #ffffb3;
+    background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,255,255,255), rgba(255,0,0,0)); 
     color: #000000;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>
 <body class='<%= controller.controller_name %>'>
   <div class="jumbotron text-center">
+    <h1>Friends Next Door</h1>
+    <p>Connecting You With People You Already Live Close To</p>
     
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
   </div>
   
   
@@ -56,31 +54,31 @@
     <div class="col-sm-3 text-center">
       <% if user_signed_in? %>
         <p>
-        <%= button_to('Home', home_path, :method => :get, class: "btn btn-small btn-success") %>
+        <%= button_to('Home', home_path, :method => :get, class: "btn btn-small btn-default") %>
         </p>
         <p>
-        <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-success box-shadow") %>        
+        <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-default") %>        
         </p>
         <% if (current_user.role == "Admin" || current_user.role == "Lead") %>
           <p>
-            <%= button_to('Register New User', new_user_registration_path, :method => :get, class: "btn btn-small btn-success") %>
+            <%= button_to('Register New User', new_user_registration_path, :method => :get, class: "btn btn-default") %>
           </p>
           <p>
-            <%= button_to("Email User", new_email_path, :method => :get, class: "btn btn-small btn-success") %>
+            <%= button_to("Email User", new_email_path, :method => :get, class: "btn btn-small btn-default") %>
           </p>
           <p>
-            <%= button_to('Show Events', events_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>    
+            <%= button_to('Show Events', events_path, :method => :get, class: "btn btn-small btn-default") %>    
           </p>
            <p>
-            <%= button_to('Lead Candidates', home_leadCandidates_path, :method => :get, class: "btn btn-small btn-success") %>
+            <%= button_to('Lead Candidates', home_leadCandidates_path, :method => :get, class: "btn btn-small btn-default") %>
  
           </p>
         <% end %>
           <p>
-            <%= button_to('Calendar', home_calendar_path, :method => :get, class: "btn btn-small btn-success box-shadow") %>        
+            <%= button_to('Calendar', home_calendar_path, :method => :get, class: "btn btn-small btn-default") %>        
           </p>
           <p>
-            <%= button_to('Groups', groups_path, :method => :get, class: "btn btn-small btn-success") %>
+            <%= button_to('Groups', groups_path, :method => :get, class: "btn btn-small btn-default") %>
           </p>
       <% end %>
     </div>

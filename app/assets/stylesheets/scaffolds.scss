@@ -8,9 +8,16 @@ body {
   width: 100%;
   background-repeat: no-repeat;
 }
+
+.jumbotron { 
+    background-color: #5bc0de;
+    color: #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+}
+ 
   .button_to {
     width: 200px;
-    background-color: #5cb85c;
+    background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,255,255,255), rgba(255,0,0,0)); 
     
   }
   .simple-calendar {
@@ -18,28 +25,51 @@ body {
       background-color: white;
     }
     
+    text-align: center;
+    
     .wday-0 {
       width: 250px;
+      border-style: solid;
+      border-width: 1px;
+      height: 100px;
       
     }
     .wday-1 {
       width: 250px;
+      border-style: solid;
+      border-width: 1px;
+      height: 100px;
     }
     .wday-2 {
       width: 250px;
+      border-style: solid;
+      border-width: 1px;
+      height: 100px;
     }
     .wday-3 {
       width: 250px;
+      border-style: solid;
+      border-width: 1px;
+      height: 100px;
     }
     .wday-4 {
       width: 250px;
+      border-style: solid;
+      border-width: 1px;
+      height: 100px;
       
     }
     .wday-5 {
       width: 250px;
+      border-style: solid;
+      border-width: 1px;
+      height: 100px
     }
     .wday-6 {
       width: 250px;
+      border-style: solid;
+      border-width: 1px;
+      height: 100px;
     }
     
     .today {}
@@ -54,6 +84,7 @@ body {
     
     .has-events {
       color: red;
+      border-color: black;
       
     }
     
@@ -63,6 +94,14 @@ p, ol, ul, td {
   font-size: 13px;
   line-height: 18px;
 }
+   .text-left{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+  }
+  .tab-content{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+  }
+
 
 pre {
   background-color: #eee;
