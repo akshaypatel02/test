@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @blog_artical.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @blog_artical.author %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @blog_artical.text %>
+</p>
+
+<%= link_to 'Edit', edit_blog_artical_path(@blog_artical) %> |
+<%= link_to 'Back', blog_articals_path %>

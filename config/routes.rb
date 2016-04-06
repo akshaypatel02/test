@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :blog_articals
   resources :events
   resources :emails
   resources :business_messages
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   end
   devise_for :users, :controllers => { registrations: 'registrations' }
   
-  
+  get 'feed' => 'blog_articles#feed'
   get 'home/index'
   get 'home/profile'
   get 'home/calendar'
