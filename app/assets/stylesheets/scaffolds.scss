@@ -1,11 +1,63 @@
 body {
-  background-color: #fff;
+  background-color: #2190d4;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: verdana, arial, helvetica, serif;
   font-size: 13px;
-  line-height: 18px;
+  background-image: url("lawn2.jpg");
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
 }
-
+  .button_to {
+    width: 200px;
+    background-color: #5cb85c;
+    
+  }
+  .simple-calendar {
+    .day {
+      background-color: white;
+    }
+    
+    .wday-0 {
+      width: 250px;
+      
+    }
+    .wday-1 {
+      width: 250px;
+    }
+    .wday-2 {
+      width: 250px;
+    }
+    .wday-3 {
+      width: 250px;
+    }
+    .wday-4 {
+      width: 250px;
+      
+    }
+    .wday-5 {
+      width: 250px;
+    }
+    .wday-6 {
+      width: 250px;
+    }
+    
+    .today {}
+    .past {}
+    .future{}
+    
+    .start-date {}
+    
+    .prev-month {}
+    .next-month {}
+    .current-month {}
+    
+    .has-events {
+      color: red;
+      
+    }
+    
+  }
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -20,6 +72,7 @@ pre {
 
 a {
   color: #000;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   &:visited {
     color: #666;
@@ -58,12 +111,12 @@ div {
   h2 {
     text-align: left;
     font-weight: bold;
-    padding: 5px 5px 5px 15px;
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
   ul li {
