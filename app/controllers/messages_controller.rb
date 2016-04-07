@@ -62,8 +62,8 @@ class MessagesController < ApplicationController
   end
 
   def upvote
-    points = current_user.points + 1
     user = User.find_by(id: @message.user_id)
+    points = user.points + 1
     if (current_user.voted_as_when_voting_on @message) == true
       #Do nothing
     else
