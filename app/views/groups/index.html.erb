@@ -20,9 +20,23 @@
         <tr>   
            <td><b><%= member.title %></b></td>
            <td><b> <%= (Group.find_by(title: member.title)).description %></b></td>
-            <td><%= link_to 'Show', Group.find_by(title: member.title) %></td>
-            <td><%= link_to 'Edit', edit_group_path(Group.find_by(title: member.title)) %> </td>
-            <td><%= link_to 'Destroy', Group.find_by(title: member.title), method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+            <td>
+              <%= link_to 'Show', Group.find_by(title: member.title) %>
+            </td>
+            <td>
+              <% if (Group.find_by(title: member.title)).user_id == current_user.id %>
+                <%= link_to 'Edit', edit_group_path(Group.find_by(title: member.title)) %> 
+              <% else %>
+                Edit
+              <% end %>
+            </td>
+            <td>
+              <% if (Group.find_by(title: member.title)).user_id == current_user.id %>
+                <%= link_to 'Destroy', Group.find_by(title: member.title), method: :delete, data: { confirm: 'Are you sure?'} %> 
+              <% else %>
+                Destroy
+              <% end %>
+            </td>
         </tr>
       <% end %>
     <% end %> 
@@ -35,9 +49,15 @@
 <table class="table"> 
   <tbody>
     <tr>    
-      <td><%= button_to('Create New Group', new_group_path, :method => :get,  class:"btn btn-small btn-default") %></td>
-      <td><%= button_to('Add Users To Groups', new_membership_path, :method => :get,  class:"btn btn-small btn-default") %> </td>
-      <td><%= button_to('Post Group Message', new_group_message_path, :method => :get, class: "btn btn-small btn-default") %> </td>
+      <td>
+        <%= button_to('Create New Group', new_group_path, :method => :get,  class:"btn btn-small btn-default") %>
+      </td>
+      <td>
+        <%= button_to('Add Users To Groups', new_membership_path, :method => :get,  class:"btn btn-small btn-default") %> 
+      </td>
+      <td>
+        <%= button_to('Post Group Message', new_group_message_path, :method => :get, class: "btn btn-small btn-default") %> 
+      </td>
     </tr>
     <tr>
       <td></td>

@@ -57,9 +57,11 @@
         <p>
         <%= button_to('Home', home_path, :method => :get, class: "btn btn-small btn-default") %>
         </p>
+        <% if current_user.role != "Business" %>
         <p>
         <%= button_to('Profile', home_profile_path, :method => :get, class: "btn btn-small btn-default") %>
-        </p>          
+        </p>
+        <% end %>
         <p>
         <%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-small btn-default") %>        
         </p>
@@ -74,9 +76,11 @@
           <p>
             <%= button_to('Calendar', home_calendar_path, :method => :get, class: "btn btn-small btn-default") %>        
           </p>
+        <% if current_user.role != "Business" %>
           <p>
             <%= button_to('Groups', groups_path, :method => :get, class: "btn btn-small btn-default") %>
           </p>
+        <% end %>
       <% end %>
       
   

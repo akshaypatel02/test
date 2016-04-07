@@ -5,6 +5,10 @@
         <h4><u><%= broadcast.title %></u></h4>
         <p><%= sanitize(broadcast.content) %></p>
         <p>Posted by: <%= (User.find_by(id: broadcast.user_id)).email %></p>
+        <% if broadcast.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_business_message_path(broadcast) %>
+          <%= link_to 'Destroy', broadcast, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
   </div>
   
 <% end %>

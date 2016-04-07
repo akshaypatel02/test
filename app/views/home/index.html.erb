@@ -112,6 +112,8 @@
     <% end %>
   </div>
 </div>
+<% if current_user.role != "Business" %>
 <p>
   <%= button_to('Post New Message', new_message_path, :method => :get, class: "btn btn-small btn-default") %>
 </p>
+<% end %>

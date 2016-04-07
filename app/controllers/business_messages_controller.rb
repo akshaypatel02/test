@@ -46,7 +46,7 @@ class BusinessMessagesController < ApplicationController
   def update
     respond_to do |format|
       if @business_message.update(business_message_params)
-        format.html { redirect_to @business_message, notice: 'Business message was successfully updated.' }
+        format.html { redirect_to home_path, notice: 'Business message was successfully updated.' }
         format.json { render :show, status: :ok, location: @business_message }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class BusinessMessagesController < ApplicationController
   def destroy
     @business_message.destroy
     respond_to do |format|
-      format.html { redirect_to business_messages_url, notice: 'Business message was successfully destroyed.' }
+      format.html { redirect_to home_path, notice: 'Business message was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

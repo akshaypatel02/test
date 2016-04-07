@@ -4,13 +4,16 @@
           
          border-style: solid ;
      }
+     #event a {
+       color: #FF0000;
+     }
  </style>
  <%= month_calendar events: @events do |date, events| %>
   <b><u><%= date.month %>-<%= date.day %></u></b>
 
   <% events.each do |event| %>
     <div>
-      <%= event.name %>
+      <li id="event"><%= link_to event.name, event %></li>
     </div>
   <% end %>
 <% end %>

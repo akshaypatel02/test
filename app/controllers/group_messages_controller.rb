@@ -59,7 +59,7 @@ class GroupMessagesController < ApplicationController
   def update
     respond_to do |format|
       if @group_message.update(group_message_params)
-        format.html { redirect_to @group_message, notice: 'Group message was successfully updated.' }
+        format.html { redirect_to groups_path, notice: 'Group message was successfully updated.' }
         format.json { render :show, status: :ok, location: @group_message }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class GroupMessagesController < ApplicationController
   def destroy
     @group_message.destroy
     respond_to do |format|
-      format.html { redirect_to group_messages_url, notice: 'Group message was successfully destroyed.' }
+      format.html { redirect_to groups_path, notice: 'Group message was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
