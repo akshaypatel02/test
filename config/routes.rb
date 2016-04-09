@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   get 'home/profile'
   get 'home/calendar'
   get 'home/leadCandidates'
+  get 'home/currentLeads'
   post 'home/promote'
+  post 'home/demote'
   
   root 'home#index', as: 'home' 
 

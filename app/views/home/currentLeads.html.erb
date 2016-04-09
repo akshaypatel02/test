@@ -1,0 +1,24 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Current Leads</h1>
+
+<table class="table text-center"> 
+  <thead>
+    <tr>
+      <td><b>Email</b></td> 
+      <td><b>Points</b></td>
+      <th>Demote</th>
+   </tr>
+  </thead>
+  <tbody>
+    <% @leads.each do |lead| %>
+      <tr>   
+        <td><b><%= lead.email %></b></td>
+        <td><b> <%= lead.points %></b></td>
+        <td><%= link_to "Demote", home_demote_path(:id => lead.id), method: :post %></td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>
