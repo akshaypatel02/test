@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users, :controllers => { registrations: 'registrations' }
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :destroy_user
   
   get 'feed' => 'blog_articles#feed'
   get 'webhook' => 'feeds#webhook'
@@ -26,8 +27,10 @@ Rails.application.routes.draw do
   get 'home/calendar'
   get 'home/leadCandidates'
   get 'home/currentLeads'
+  get 'home/userDirectory'
   post 'home/promote'
   post 'home/demote'
+  
   
   root 'home#index', as: 'home' 
 

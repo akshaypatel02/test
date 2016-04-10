@@ -1,0 +1,24 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>User Directory</h1>
+
+<table class="table text-center"> 
+  <thead>
+    <tr>
+      <td><b>Email</b></td> 
+      <th>Delete</th>
+   </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <% if (user.role != 4 && user.id != current_user.id) %>
+      <tr>   
+        <td><b><%= user.email %></b></td>
+        <td><%= link_to "Destroy", destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+      </tr>
+      <% end %>
+    <% end %> 
+  </tbody>
+</table>

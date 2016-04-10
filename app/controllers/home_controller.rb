@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   #before_action :authenticate_user!
-  layout "profile", only: [:profile, :leadCandidates, :currentLeads]
+  layout "profile", only: [:profile, :leadCandidates, :currentLeads, :userDirectory]
   
   def index
     @messages = Message.all
@@ -49,6 +49,10 @@ class HomeController < ApplicationController
         @leads.push(lead)
       end
     end
+  end
+  
+  def userDirectory
+    @users = User.all
   end
   
   def promote
