@@ -15,6 +15,11 @@ class EmailsController < ApplicationController
   # GET /emails/new
   def new
     @email = Email.new
+    @userInfo = User.all
+    @userEmail = Array.new
+    @userInfo.each do |user|
+      @userEmail.push(user.email)
+    end
   end
 
   # GET /emails/1/edit
