@@ -1,9 +1,9 @@
 body {
   background-color: #2190d4;
   color: #333;
-  font-family: verdana, arial, helvetica, serif;
+  font-family: Lucida Console, Charcoal, serif; 
   font-size: 13px;
-  background-image: url("lawn2.jpg");
+  background-image: url("green.jpg");
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
@@ -12,7 +12,7 @@ body {
 .jumbotron { 
     background-color: #5bc0de;
     color: #000000;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
 }
  
   .button_to {
@@ -20,6 +20,11 @@ body {
     background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,255,255,255), rgba(255,0,0,0)); 
     
   }
+  
+  th{
+    text-align: center;
+  }
+   
   .simple-calendar {
     .day {
       background-color: white;
