@@ -99,6 +99,7 @@
       <% if user_signed_in? %>
         <h2><u>User Information</u></h2>
         <ul>
+          <li>Name: <%= current_user.name %></li>
           <li>Email: <%= current_user.email %></li>
           <li>Role: <%= current_user.role %></li>
           <% if current_user.points == nil %>
@@ -106,6 +107,7 @@
           <% else %>
             <li>Points: <%= current_user.points %></li>
           <% end %>
+          <li>Address: <%= current_user.address %></li>
         </ul>
       <% end %>
       </div>

@@ -34,7 +34,6 @@
         <h3><u><%= link_to message.title,message_path(message) %></u></h3>
         <p><%= sanitize(message.content) %></p>
         <p>Posted by: <%= (User.find_by(id: message.user_id)).email %></p>
-        <%= link_to "view Message", message_path(message), class: "btn btn-default" %>
       </div>
     <% end %>
   </div>
