@@ -1,4 +1,4 @@
-class EmailsController < ApplicationController
+eclass EmailsController < ApplicationController
   before_action :set_email, only: [:show, :edit, :update, :destroy]
 
   # GET /emails

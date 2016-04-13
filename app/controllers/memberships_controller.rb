@@ -5,6 +5,7 @@ class MembershipsController < ApplicationController
   # GET /memberships
   # GET /memberships.json
   def index
+    
     @memberships = Membership.all
   end
 
@@ -16,7 +17,7 @@ class MembershipsController < ApplicationController
   # GET /memberships/new
   def new
     @membership = Membership.new
-    @userInfo = User.all
+    @userInfo = User.where.not(id: current_user)
     @userEmail = Array.new
     @userInfo.each do |user|
       @userEmail.push(user.email)
