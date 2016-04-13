@@ -20,6 +20,7 @@ class MembershipsController < ApplicationController
     @userInfo = User.where.not(id: current_user)
     @userEmail = Array.new
     @userInfo.each do |user|
+      
       @userEmail.push(user.email)
     end
   

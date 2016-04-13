@@ -28,7 +28,7 @@
   
   <div class="field">
     <legend>Select a Role</legend>
-    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
+    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}, :disabled => ['Admin', 'Lead']) %>
   </div>
 
   <div class="actions">
