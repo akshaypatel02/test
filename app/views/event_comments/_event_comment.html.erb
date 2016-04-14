@@ -1,0 +1,17 @@
+<style>
+  .entry{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+  }
+</style>
+
+<div class="entry text-center">
+  <p> <%= event_comment.content %> </p>
+  <p>Posted by: <%= event_comment.user.email %> <%= time_ago_in_words(event_comment.created_at) %> ago</p>
+</div>
+
+<% if event_comment.user_id == current_user.id %>
+<%= link_to "Edit", edit_event_event_comment_path(event_comment.event, event_comment)  %>
+<%= link_to "Delete", event_event_comment_path(event_comment.event, event_comment), method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
+<p></p>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :feeds
   resources :blog_articals
-  resources :events
+  resources :events do
+    resources :event_comments
+  end
   resources :emails
   resources :business_messages
   resources :group_messages
