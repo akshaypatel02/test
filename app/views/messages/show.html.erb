@@ -29,5 +29,6 @@
 
 <% if @message.user_id == current_user.id %>
 <%= link_to 'Edit', edit_message_path(@message), class:"btn btn-secondary btn-sm" %> |
-<%= link_to 'Back', home_path, class:"btn btn-secondary btn-sm" %>
+<%= link_to 'Back', home_path, class:"btn btn-secondary btn-sm" %> |
+<%= link_to 'Destroy', message_path,class:"btn btn-secondary btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
